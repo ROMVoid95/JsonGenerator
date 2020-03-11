@@ -1,0 +1,28 @@
+Normal Block:
+test_block
+
+Handheld Item:
+test_sword
+
+
+Normal Item:
+test_apple
+
+
+Orientable Block:
+test_furnace
+
+
+Slab Block:
+test
+
+
+Stair Block:
+test
+
+
+Variant Block / Block with Properties:
+test_clay;blue,red,green:color
+
+ForgeVersion Variant Block: **Same as above just the variants are actual blocks
+miscblock;block_one,block_two,block_three:type

@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'application'
+}
+
+mainClassName = 'net.rom.jsongenerator.JsonGenerator'
+version = '0.0.1'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+    jcenter()
+}
+
+dependencies {
+	implementation 'com.google.code.gson:gson:2.8.6'
+	testImplementation 'junit:junit:4.12'
+}
+
+jar {
+	baseName = 'JsonGenerator'
+	version = '0.0.1'
+	manifest {
+		attributes 'Main-Class': 'net.rom.jsongenerator.JsonGenerator'
+   }
+   
+}
