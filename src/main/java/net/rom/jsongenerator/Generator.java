@@ -16,8 +16,10 @@ public class Generator {
 	public static void generateItem(String parent) {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/item/" + name + ".json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/item/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value(parent);
 				writer.name("textures");
@@ -40,8 +42,10 @@ public class Generator {
 	public static void generateItemBlock() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/item/" + name + ".json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/item/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value(String.valueOf(JsonGenerator.MODID) + ":block/" + name);
 				writer.name("display");
@@ -82,8 +86,10 @@ public class Generator {
 
 	public static void generateItemBlock(String name) {
 		try {
-			JsonWriter writer = new JsonWriter(
-					new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/item/" + name + ".json"));
+			File file = new File(
+					String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/item/" + name + ".json");
+			file.getParentFile().mkdirs();
+			JsonWriter writer = new JsonWriter(new FileWriter(file));
 			writer.beginObject().setIndent("   ");
 			writer.name("parent").value(String.valueOf(JsonGenerator.MODID) + ":block/" + name);
 			writer.name("display");
@@ -124,8 +130,10 @@ public class Generator {
 	public static void generateBlock() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/block/" + name + ".json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/block/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value("block/cube_all");
 				writer.name("textures");
@@ -143,15 +151,17 @@ public class Generator {
 			}
 		}
 		generateItemBlock();
-		generateForgeBlockstate();
+		generateBlockstate();
 		JsonGenerator.toGenerate.clear();
 	}
 
 	public static void generateBlockOrientable() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/block/" + name + ".json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/item/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value("block/orientable");
 				writer.name("textures");
@@ -188,8 +198,10 @@ public class Generator {
 			String[] variantList = variants.split(",");
 			for (int i = 0; i < variantList.length; i++) {
 				try {
-					JsonWriter writer = new JsonWriter(new FileWriter(
-							String.valueOf(JsonGenerator.PATH) + "/output/block/" + variantList[i] + ".json"));
+					File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID
+							+ "/models/item/" + name + ".json");
+					file.getParentFile().mkdirs();
+					JsonWriter writer = new JsonWriter(new FileWriter(file));
 					writer.beginObject().setIndent("   ");
 					writer.name("parent").value("block/all");
 					writer.name("textures");
@@ -215,8 +227,10 @@ public class Generator {
 	public static void generateBlockSlab() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/block/" + name + "_slab.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/item/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value("block/half_slab");
 				writer.name("textures");
@@ -235,8 +249,10 @@ public class Generator {
 				JsonGenerator.logger.end();
 			}
 			try {
-				JsonWriter writer = new JsonWriter(new FileWriter(
-						String.valueOf(JsonGenerator.PATH) + "/output/block/" + name + "_slab_upper.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/block/"
+						+ name + "_slab_upper.json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value("block/upper_slab");
 				writer.name("textures");
@@ -263,8 +279,10 @@ public class Generator {
 	public static void generateBlockStair() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/block/" + name + "_stair.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/item/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value("block/stairs");
 				writer.name("textures");
@@ -283,8 +301,10 @@ public class Generator {
 				JsonGenerator.logger.end();
 			}
 			try {
-				JsonWriter writer = new JsonWriter(new FileWriter(
-						String.valueOf(JsonGenerator.PATH) + "/output/block/" + name + "_stair_inner.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/block/"
+						+ name + "_stair_inner.json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value("block/inner_stairs");
 				writer.name("textures");
@@ -303,8 +323,10 @@ public class Generator {
 				JsonGenerator.logger.end();
 			}
 			try {
-				JsonWriter writer = new JsonWriter(new FileWriter(
-						String.valueOf(JsonGenerator.PATH) + "/output/block/" + name + "_stair_outer.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/models/block/"
+						+ name + "_stair_outer.json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("parent").value("block/outer_stairs");
 				writer.name("textures");
@@ -340,8 +362,10 @@ public class Generator {
 			variants = variants.replace(";", "");
 			String[] variantList = variants.split(",");
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/blockstates/" + name + ".json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/blockstates/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("variants");
 				writer.beginObject().setIndent("   ");
@@ -367,8 +391,10 @@ public class Generator {
 	public static void generateBlockstate() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/blockstates/" + name + ".json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/blockstates/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("variants");
 				writer.beginObject().setIndent("   ");
@@ -405,9 +431,10 @@ public class Generator {
 				variants = variants.replace(";", "");
 				String[] variantList = variants.split(",");
 				list.addAll(Arrays.asList(variantList));
-				//List variantArrayList = Arrays.asList(variantList);
 				Arrays.asList(list).forEach(e -> {
-					e.iterator().forEachRemaining(ee -> {
+					e.stream().forEach(ee -> {
+						//);.iterator().forEachRemaining(ee -> {
+					
 						Type t = new Type(ee);
 						ty.add(t);
 					});
@@ -415,7 +442,9 @@ public class Generator {
 				;
 				BlockVarinats B1 = new BlockVarinats(ty);
 				bv.add(B1);
-				File file = new File(name + ".json");
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/blockstates/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
 				OutputStream outputStream = new FileOutputStream(file);
 				Forge.writeJsonStream(outputStream, bv);
 				JsonGenerator.blockstates++;
@@ -431,8 +460,10 @@ public class Generator {
 	public static void generateBlockstateSlab() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(new FileWriter(
-						String.valueOf(JsonGenerator.PATH) + "/output/blockstates/" + name + "_slab.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/blockstates/"
+						+ name + "_slab.json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("variants");
 				writer.beginObject().setIndent("   ");
@@ -455,8 +486,10 @@ public class Generator {
 				JsonGenerator.logger.end();
 			}
 			try {
-				JsonWriter writer = new JsonWriter(new FileWriter(
-						String.valueOf(JsonGenerator.PATH) + "/output/blockstates/" + name + "_slab_double.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/blockstates/"
+						+ name + "_slab_double.json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("variants");
 				writer.beginObject().setIndent("   ");
@@ -480,8 +513,10 @@ public class Generator {
 	public static void generateBlockstateOrientable() {
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(
-						new FileWriter(String.valueOf(JsonGenerator.PATH) + "/output/blockstates/" + name + ".json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/blockstates/"
+						+ name + ".json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("variants");
 				writer.beginObject().setIndent("   ");
@@ -523,8 +558,10 @@ public class Generator {
 		String[] shape = { "straight", "outer_right", "outer_left", "inner_right", "inner_left" };
 		for (String name : JsonGenerator.toGenerate) {
 			try {
-				JsonWriter writer = new JsonWriter(new FileWriter(
-						String.valueOf(JsonGenerator.PATH) + "/output/blockstates/" + name + "_stair.json"));
+				File file = new File(String.valueOf(JsonGenerator.PATH) + "/" + JsonGenerator.MODID + "/blockstates/"
+						+ name + "_stair.json");
+				file.getParentFile().mkdirs();
+				JsonWriter writer = new JsonWriter(new FileWriter(file));
 				writer.beginObject().setIndent("   ");
 				writer.name("variants");
 				writer.beginObject().setIndent("   ");

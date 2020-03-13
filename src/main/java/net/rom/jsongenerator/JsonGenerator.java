@@ -2,18 +2,13 @@ package net.rom.jsongenerator;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.CopyOption;
-import java.nio.file.Files;
 import java.util.ArrayList;
+
+import org.apache.commons.io.FileUtils;
 
 public class JsonGenerator {
 	public static ArrayList<String> toGenerate = new ArrayList<>();
@@ -83,9 +78,17 @@ public class JsonGenerator {
 		slab.createNewFile();
 		File stair = new File(String.valueOf(PATH) + "/params/stair.txt");
 		stair.createNewFile();
-		File modid = new File(String.valueOf(PATH) + "/modid.txt");
-		modid.createNewFile();
-
+		File examplesFile = new File(JsonGenerator.PATH + "Examples.txt");
+		File readmeFile = new File(JsonGenerator.PATH + "README.txt");
+		File idFile = new File(JsonGenerator.PATH + "modid.txt");
+		if(!examplesFile.exists())
+			copyFile(new File(JsonGenerator.class.getResource("Examples.txt").getFile()), new File(JsonGenerator.PATH + "Examples.txt"));
+		if(!readmeFile.exists())
+			copyFile(new File(JsonGenerator.class.getResource("README.txt").getFile()), new File(JsonGenerator.PATH  + "README.txt"));
+		if(!idFile.exists())
+			copyFile(new File(JsonGenerator.class.getResource("modid.txt").getFile()), new File(JsonGenerator.PATH  + "modid.txt"));
+		
+		
 	}
 
 	public static void readModid() {
@@ -134,6 +137,10 @@ public class JsonGenerator {
 				ex.printStackTrace();
 			}
 		}
+	}
+	
+	private static void copyFile(File source, File dest) throws IOException {
+	    FileUtils.copyFile(source, dest);
 	}
 
 	public static void end() {

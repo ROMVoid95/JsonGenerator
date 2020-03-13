@@ -33,3 +33,5 @@ local.properties
 *.ear
 *.nar
 hs_err_pid*
+*.json
+src/main/java/net/rom/jsongenerator/Test.java
