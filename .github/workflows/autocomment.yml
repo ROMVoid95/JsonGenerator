@@ -1,0 +1,12 @@
+name: Auto Comment
+on: [issues]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wow-actions/auto-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          issuesOpenedComment: |
+            @{{ author }}
+            This is only a test!
